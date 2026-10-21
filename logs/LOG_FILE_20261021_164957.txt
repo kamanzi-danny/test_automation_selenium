@@ -1,0 +1,5 @@
+Test Title:HOME
+Test URL:file:///Users/cloviswanziguya/Projects/Portfolio/cwanziguya/index.html
+Target URL:{'ABOUT': 'file:///Users/cloviswanziguya/Projects/Portfolio/cwanziguya/about.html', 'PORTFOLIO': 'file:///Users/cloviswanziguya/Projects/Portfolio/cwanziguya/portfolio.html', 'SERVICES': 'file:///Users/cloviswanziguya/Projects/Portfolio/cwanziguya/services.html', 'CONTACT': 'file:///Users/cloviswanziguya/Projects/Portfolio/cwanziguya/contact.html', 'HOME': 'file:///Users/cloviswanziguya/Projects/Portfolio/cwanziguya/index.html'}
+Result:PASS
+Time of test:2026-10-21 16:49:57.572480

@@ -30,12 +30,16 @@ def test_click_item(test_url, target_url, itemname):
         print(f"Link test for {itemname} at URL {target_url} passed successfully!")
         print(f"Attempting the next test for the next item in the array...")
 
+        test_results = "PASS"
+
     except Error as err:
         print(f"An error occurred trying to perform the test:  {err}")
-    return None
+        test_results = "FAIL"
+    return test_results
 
     #Close the broswer after the test
     close_browser()
 
 def close_browser():
     driver.quit()
+

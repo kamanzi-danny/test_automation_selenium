@@ -1,0 +1,5 @@
+Test Title:CONTACT
+Test URL:file:///Users/cloviswanziguya/Projects/Portfolio/cwanziguya/index.html
+Target URL:file:///Users/cloviswanziguya/Projects/Portfolio/cwanziguya/contact.html
+Current URL:file:///Users/cloviswanziguya/Projects/Portfolio/cwanziguya/contact.html
+Result:PASS

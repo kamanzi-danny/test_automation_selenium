@@ -1,0 +1,5 @@
+Test Title:HOME
+Test URL:file:///Users/cloviswanziguya/Projects/Portfolio/cwanziguya/index.html
+Target URL:file:///Users/cloviswanziguya/Projects/Portfolio/cwanziguya/index.html
+Current URL:file:///Users/cloviswanziguya/Projects/Portfolio/cwanziguya/index.html
+Result:PASS

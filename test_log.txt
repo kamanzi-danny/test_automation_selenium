@@ -1,0 +1,30 @@
+Test Item: ABOUT
+Test URL: file:///Users/cloviswanziguya/Projects/Portfolio/cwanziguya/index.html
+Target URL: file:///Users/cloviswanziguya/Projects/Portfolio/cwanziguya/about.html
+Current URL: file:///Users/cloviswanziguya/Projects/Portfolio/cwanziguya/about.html
+Result: PASS
+----------------------------------------
+Test Item: PORTFOLIO
+Test URL: file:///Users/cloviswanziguya/Projects/Portfolio/cwanziguya/index.html
+Target URL: file:///Users/cloviswanziguya/Projects/Portfolio/cwanziguya/portfolio.html
+Current URL: file:///Users/cloviswanziguya/Projects/Portfolio/cwanziguya/portfolio.html
+Result: PASS
+----------------------------------------
+Test Item: SERVICES
+Test URL: file:///Users/cloviswanziguya/Projects/Portfolio/cwanziguya/index.html
+Target URL: file:///Users/cloviswanziguya/Projects/Portfolio/cwanziguya/services.html
+Current URL: file:///Users/cloviswanziguya/Projects/Portfolio/cwanziguya/services.html
+Result: PASS
+----------------------------------------
+Test Item: CONTACT
+Test URL: file:///Users/cloviswanziguya/Projects/Portfolio/cwanziguya/index.html
+Target URL: file:///Users/cloviswanziguya/Projects/Portfolio/cwanziguya/contact.html
+Current URL: file:///Users/cloviswanziguya/Projects/Portfolio/cwanziguya/contact.html
+Result: PASS
+----------------------------------------
+Test Item: HOME
+Test URL: file:///Users/cloviswanziguya/Projects/Portfolio/cwanziguya/index.html
+Target URL: file:///Users/cloviswanziguya/Projects/Portfolio/cwanziguya/index.html
+Current URL: file:///Users/cloviswanziguya/Projects/Portfolio/cwanziguya/index.html
+Result: PASS
+----------------------------------------
