@@ -1,3 +1,0 @@
-First line from a list.
-Second line from a list.
-Third line from a list.
