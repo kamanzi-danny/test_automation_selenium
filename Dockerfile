@@ -3,11 +3,12 @@ FROM python:3.12-slim
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
-    CHROME_BIN=/usr/bin/chromium
+    CHROME_BIN=/usr/bin/chromium \
+    TZ=Africa/Kigali
 
-# Install Chromium and its matching WebDriver for Selenium.
+# Install Chromium, its matching WebDriver, and time zone data (log times in Kigali time).
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends chromium chromium-driver \
+    && apt-get install -y --no-install-recommends chromium chromium-driver tzdata \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app

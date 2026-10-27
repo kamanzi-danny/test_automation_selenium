@@ -1,12 +1,16 @@
-# URL and navigation labels for the deployed portfolio site.
+# Settings for the portfolio test run.
+
+# The website under test (published with GitHub Pages).
 TEST_URL = "https://kamanzi-danny.github.io/Portifolio/index.html"
 
-ABOUT_TEXT = "About"
-PORTFOLIO_TEXT = "Projects"
-SERVICES_TEXT = "Education"
-CONTACT_TEXT = "Contact"
+# Folder where every run writes its own timestamped log file.
+LOG_DIR = "logs"
 
-ABOUT_URL = f"{TEST_URL}#about"
-PORTFOLIO_URL = f"{TEST_URL}#projects"
-SERVICES_URL = f"{TEST_URL}#education"
-CONTACT_URL = f"{TEST_URL}#contact"
+# Folder for screenshots taken when a test fails.
+SCREENSHOT_DIR = "logs/screenshots"
+
+# How long (seconds) to wait for an element or a URL change before failing.
+WAIT_TIMEOUT = 10
+
+# A test that passes but takes longer than this (seconds) is logged as WARNING.
+SLOW_TEST_SECONDS = 3.0
