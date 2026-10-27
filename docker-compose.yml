@@ -1,0 +1,7 @@
+services:
+  selenium-tests:
+    build: .
+    image: portfolio-selenium-tests
+    shm_size: "1gb"          # Chromium needs more shared memory than Docker's 64 MB default
+    volumes:
+      - ./logs:/app/logs     # keep the test logs on your computer after the container exits

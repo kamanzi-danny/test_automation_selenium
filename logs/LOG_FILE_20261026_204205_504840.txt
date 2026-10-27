@@ -1,0 +1,6 @@
+Test Title: Education
+Test URL: https://kamanzi-danny.github.io/Portifolio/index.html
+Target URL: https://kamanzi-danny.github.io/Portifolio/index.html#education
+Result: PASS
+Time of test: 2026-10-26 20:42:05.508801
+----------------------------------------

@@ -1,0 +1,6 @@
+Test Title: About
+Test URL: https://kamanzi-danny.github.io/Portifolio/index.html
+Target URL: https://kamanzi-danny.github.io/Portifolio/index.html#about
+Result: PASS
+Time of test: 2026-10-26 20:42:05.073242
+----------------------------------------

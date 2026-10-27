@@ -1,38 +1,52 @@
-from includes import functions
-from includes import constants
+import sys
 from datetime import datetime
 
-#Create an array of the texts and URLs as well so that they are looped through in the test.
-text_url_array = {
-    constants.ABOUT_TEXT: constants.ABOUT_URL,
-    constants.PORTFOLIO_TEXT: constants.PORTFOLIO_URL,
-    constants.SERVICES_TEXT: constants.SERVICES_URL,
-    constants.CONTACT_TEXT: constants.CONTACT_URL,
-    constants.HOME_TEXT: constants.HOME_URL 
-}
+from includes import constants, functions
 
-#Try and loop through an array 
-for test_name, test_url in text_url_array.items():
-    #Call the function that it to perform the actual test
-    test_results = functions.test_click_item(constants.TEST_URL,test_url, test_name)
-    print(f"All tests have been completed. Please check the log file for details. {test_results}")
 
-    #Create a log file to hold the test results. The log file will be created in the logs directory with a timestamp in the filename.
-    now = datetime.now()
-    timestamp = now.strftime("%Y%m%d_%H%M%S")
+def main():
+    test_links = {
+        constants.ABOUT_TEXT: constants.ABOUT_URL,
+        constants.PORTFOLIO_TEXT: constants.PORTFOLIO_URL,
+        constants.SERVICES_TEXT: constants.SERVICES_URL,
+        constants.CONTACT_TEXT: constants.CONTACT_URL,
+    }
 
-    lines_of_text = [
-        f"Test Title:{test_name}\n",
-        f"Test URL:{test_url}\n",
-        f"Target URL:{text_url_array}\n",
-        f"Result:{test_results}\n"
-        f"Time of test:{now}\n",
-        f"----------------------------------------\n"
-    ]
+    results = {}
+    try:
+        for link_text, expected_url in test_links.items():
+            result = functions.test_click_item(
+                constants.TEST_URL,
+                expected_url,
+                link_text,
+            )
+            results[link_text] = result
+            print(f"Test completed for {link_text}: {result}")
 
-    #Write the lines of text to a log file
-    with open(f"logs/LOG_FILE_{timestamp}.txt", "w", encoding="utf-8") as file:
-        file.writelines(lines_of_text)
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
+            with open(
+                f"logs/LOG_FILE_{timestamp}.txt",
+                "w",
+                encoding="utf-8",
+            ) as log_file:
+                log_file.writelines(
+                    [
+                        f"Test Title: {link_text}\n",
+                        f"Test URL: {constants.TEST_URL}\n",
+                        f"Target URL: {expected_url}\n",
+                        f"Result: {result}\n",
+                        f"Time of test: {datetime.now()}\n",
+                        "----------------------------------------\n",
+                    ]
+                )
+    finally:
+        functions.close_browser()
 
-#Close the test activities after the test
-print(f"End of test for all items. Closing the browser now...")
+    passed = sum(1 for r in results.values() if r == "PASS")
+    print(f"End of tests: {passed}/{len(test_links)} passed.")
+    # Non-zero exit code lets Docker/CI detect a failed run.
+    return 0 if passed == len(test_links) else 1
+
+
+if __name__ == "__main__":
+    sys.exit(main())

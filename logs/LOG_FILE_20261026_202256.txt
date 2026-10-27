@@ -1,0 +1,6 @@
+Test Title:CONTACT
+Test URL:https://kamanzi-danny.github.io/Portifolio/contact.html
+Target URL:{'ABOUT': 'https://kamanzi-danny.github.io/Portifolio/about.html', 'PORTFOLIO': 'https://kamanzi-danny.github.io/Portifolio/portfolio.html', 'SERVICES': 'https://kamanzi-danny.github.io/Portifolio/services.html', 'CONTACT': 'https://kamanzi-danny.github.io/Portifolio/contact.html', 'HOME': 'https://kamanzi-danny.github.io/Portifolio/index.html'}
+Result:FAIL
+Time of test:2026-10-26 20:22:56.266772
+----------------------------------------

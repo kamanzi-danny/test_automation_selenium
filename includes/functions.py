@@ -1,45 +1,48 @@
-from binascii import Error
+import os
 
 from selenium import webdriver
+from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
-import time
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
 
-# Initialize the Chrome WebDriver
-driver = webdriver.Chrome()
+
+options = Options()
+chrome_bin = os.environ.get("CHROME_BIN")
+if chrome_bin:
+    options.binary_location = chrome_bin
+options.add_argument("--headless")
+options.add_argument("--no-sandbox")
+options.add_argument("--disable-dev-shm-usage")
+
+chromedriver = "/usr/bin/chromedriver"
+service = Service(executable_path=chromedriver) if os.path.exists(chromedriver) else Service()
+driver = webdriver.Chrome(service=service, options=options)
+
 
 def test_click_item(test_url, target_url, itemname):
     try:
-        # 1. Open the target webpage
         driver.get(test_url)
-        driver.maximize_window()
-
-        # 2. Locate the link (by its visible text or XPath)
-        # Strategy A: Using the exact text displayed on the page
-        link_element = driver.find_element(By.LINK_TEXT, itemname)
-        
-        # Strategy B: Alternative using XPath if the text is dynamic
-        # link_element = driver.find_element(By.XPATH, "//a[@id='myLink']")
-
-        # 3. Click the link
+        link_element = WebDriverWait(driver, 20).until(
+            EC.element_to_be_clickable((By.LINK_TEXT, itemname))
+        )
         link_element.click()
-        time.sleep(2) # Brief pause to allow the page to load
+        WebDriverWait(driver, 10).until(
+            lambda browser: browser.current_url == target_url
+        )
+        print(f"Link test for {itemname} passed: {driver.current_url}")
+        return "PASS"
+    except TimeoutException as err:
+        print(f"Timed out testing {itemname}: {err}")
+        print("Current URL:", driver.current_url)
+        print("Available links:", [link.text for link in driver.find_elements(By.TAG_NAME, "a")])
+        return "FAIL"
+    except Exception as err:
+        print(f"Error testing {itemname}: {err}")
+        return "FAIL"
 
-        # 4. Verify navigation by checking the current URL
-        expected_url = target_url  # Assuming itemname is the expected URL after clicking
-        assert driver.current_url == expected_url, f"Expected {expected_url} but got {driver.current_url}"
-        print(f"Link test for {itemname} at URL {target_url} passed successfully!")
-        print(f"Attempting the next test for the next item in the array...")
-
-        test_results = "PASS"
-
-    except Error as err:
-        print(f"An error occurred trying to perform the test:  {err}")
-        test_results = "FAIL"
-    return test_results
-
-    #Close the broswer after the test
-    close_browser()
 
 def close_browser():
     driver.quit()
-
